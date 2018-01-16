@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot Thymeleaf + Spring Security</title>
+
+<div th:replace="fragments/header :: header-css" ></div>
+
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" ></div>
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Spring Boot Web Thymeleaf + Spring Security</h1>
+			<h2>
+				1. Visit <a th:href="@{/admin}">Admin page (Spring Security
+					protected, Need Admin Role)</a>
+			</h2>
+			<h2>
+				2. Visit <a th:href="@{/secure}">User page (Spring Security
+					protected, Need User Role)</a>
+			</h2>
+			<h2>
+				3. Visit <a th:href="@{/about}">Normal page</a>
+			</h2>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" ></div>
+
+</body>
+</html>
+
+<!-- <html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Spring Security OAuth Example</title>
+
+</head>
+
+
+<body>
+
+    <h1>Spring Security OAuth Example</h1>
+    <a href="index?lang=en">English </a> | <a href="index?lang=hi">Hindi </a>
+    
+    <h1 th:text="#{welcome.message}"></h1>
+
+    <span th:text="#{lang.change}"></span>:
+    
+    <select id="locales">
+        <option value=""></option>
+        <option value="en" th:text="#{lang.eng}"></option>
+        <option value="de" th:text="#{lang.hi}"></option>
+    </select>
+    
+
+    <a href="secure">Login to OAuth here</a>
+    <a href="registration">Please Register</a>
+
+</body>
+
+</html> -->

@@ -1,0 +1,596 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Daana - a complete health care solution</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    
+     <!-- Font Awesome CSS-->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+    
+    <!-- Fontastic Custom icon font-->
+    <link href="../static/css/fontastic.css" th:href="@{/css/fontastic.css}" rel="stylesheet" />
+    
+    
+    <!-- Google fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet" />
+    
+    
+     <!-- theme stylesheet-->
+    <link href="../static/css/style.default.css" th:href="@{/css/style.default.css}" rel="stylesheet" />
+    
+    
+     <!-- Custom stylesheet - for your changes-->
+    <link href="../static/css/custom.css" th:href="@{/css/custom.css}" rel="stylesheet" />
+    
+     <!-- Favicon-->
+    <link  rel="shortcut icon"  href="../static/img/favicon.ico" th:href="@{/img/favicon.ico}" />
+    
+  </head>
+  <body>
+    <div class="page">
+      <!-- Main Navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <!-- Search Box-->
+          <div class="search-box">
+            <button class="dismiss"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+              <input type="search" placeholder="What are you looking for..." class="form-control">
+            </form>
+          </div>
+          <div class="container-fluid">
+            <div class="navbar-holder d-flex align-items-center justify-content-between">
+              <!-- Navbar Header-->
+              <div class="navbar-header">
+                <!-- Navbar Brand --><a href="/" class="navbar-brand">
+                  <div class="brand-text brand-big"><span>Daanee </span><strong></strong></div>
+                  <div class="brand-text brand-small"><strong>DN</strong></div></a>
+                <!-- Toggle Button--><span></span><span></span><span></span></a>
+                <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn"><span></span><span></span><span></span></a>
+                
+                
+              </div>
+              <!-- Navbar Menu -->
+              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Search-->
+                <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                <!-- Notifications-->
+                <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red">12</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-envelope bg-green"></i>You have 6 new messages </div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-upload bg-orange"></i>Server Rebooted</div>
+                          <div class="notification-time"><small>4 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item"> 
+                        <div class="notification">
+                          <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                          <div class="notification-time"><small>10 minutes ago</small></div>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>view all notifications                                            </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Messages                        -->
+                <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">10</span></a>
+                  <ul aria-labelledby="notifications" class="dropdown-menu">
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
+                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-body">
+                          <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
+                        </div></a></li>
+                    <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages    </strong></a></li>
+                  </ul>
+                </li>
+                <!-- Logout    -->
+                <li class="nav-item"><a href="login.html" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="page-content d-flex align-items-stretch"> 
+        <!-- Side Navbar -->
+        <nav class="side-navbar shrinked">
+          <!-- Sidebar Header-->
+        
+          <ul class="list-unstyled">
+                    <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
+                    <li><a href="tables.html"> <i class="fa fa-heartbeat"></i>Patients </a></li>
+                    <li><a href="charts.html"> <i class="fa fa-user-md"></i>Consultants </a></li>
+                    <li><a href="forms.html"> <i class="fa fa-hospital-o"></i>Hospitals </a></li>
+                    <li><a href="forms.html"> <i class="fa fa-wheelchair"></i>Home Services </a></li>
+                    <li><a href="forms.html"> <i class="fa fa-medkit"></i>Medical Stores </a></li>
+                    <li><a href="forms.html"> <i class="icon-flask"></i>Laboratory </a></li>
+                    <li><a href="forms.html"> <i class="fa fa-ambulance"></i>Ambulance </a></li>
+                    <li><a href="forms.html"> <i class="icon-padnote"></i>Blood Banks </a></li>
+                    <li><a href="forms.html"> <i class="icon-picture"></i>TPA & Insurance </a></li>
+                    <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Free Services </a>
+                      <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                        <li><a href="#">Finance</a></li>
+                        <li><a href="#">NGO's</a></li>
+                      </ul>
+                    </li>
+            </ul>
+            <span class="heading">Others</span>
+	          <ul class="list-unstyled">
+	            <li> <a href="#"> <i class="icon-flask"></i>Help </a></li>
+	            <li> <a href="#"> <i class="icon-screen"></i>Contact us </a></li>
+	            <li> <a href="#"> <i class="icon-mail"></i>Terms of service </a></li>
+	          </ul>
+        </nav>
+        <div class="content-inner active">
+          <!-- Page Header-->
+          <!-- <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom">Dashboard</h2>
+            </div>
+          </header> -->
+          <!-- Dashboard Counts Section-->
+          
+          <!-- Dashboard Header Section    -->
+          <section class="dashboard-header">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Statistics -->
+                <div class="statistics col-lg-4 col-12">
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-red"><i class="fa fa-tasks"></i></div>
+                    <div class="text"><strong>9898912453</strong><br><small>Emergency</small></div>
+                  </div>
+                  
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                    <div class="text"><strong>Appointment</strong><br><small>Book an appointment</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                    <div class="text"><strong>Health Checkup</strong><br><small>book home pickup now</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                    <div class="text"><strong>Consult</strong><br><small>a doctor online</small></div>
+                  </div>
+                </div>
+                <!-- Line Chart            -->
+                <!-- <div class="col-lg-6 col-12">
+                  	<div class="col-lg-12 col-12">
+                  <div class="recent-updates card">
+                    <div class="card-header">
+                      <h3 class="h4">Recent Updates</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      Item
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      Item
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      Item       
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      Item
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      Item
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div> -->
+                <div class="chart col-lg-4 col-12">
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>Ambulance</strong><br><small>Book now</small></div>
+                  </div>
+                  
+                   <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                    <div class="text"><strong>Medicine</strong><br><small>order online</small></div>
+                  </div>
+                 
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                    <div class="text"><strong>Need Blood</strong><br><small>Contact now</small></div>
+                  </div>
+                  
+                   <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>Guest</strong><br><small>Doctors in you city</small></div>
+                  </div>
+                 
+                </div>
+                <div class="chart col-lg-4 col-12">
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>Home Service</strong><br><small>Book for Home services</small></div>
+                  </div>
+                      
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-line-chart"></i></div>
+                    <div class="text"><strong>Free Services</strong><br><small>Check free service</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-green"><i class="fa fa-calendar-o"></i></div>
+                    <div class="text"><strong>Medical Events</strong><br><small>in your city</small></div>
+                  </div>
+                  <div class="statistic d-flex align-items-center bg-white has-shadow">
+                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                    <div class="text"><strong>Camp</strong><br><small>Medical camps in you city</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Why we Section-->
+          <section class="updates no-padding-top">
+            <div class="container-fluid">
+              <div class="row">
+              	<div class="col-lg-12">
+                  <div class="recent-updates card">
+                    <div class="card-header">
+                      <h3 class="h4">Why we</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Instant Appointment</h5>
+                            <p>Instant appointment with doctors.Guaranteed.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Time Value</h5>
+                            <p>Skip the waiting room.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Ontime</h5>
+                            <p>Get all your medicines.Everytime. On time.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>  
+        
+          <!-- Updates Section                                                -->
+          <section class="updates no-padding-top">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Recent Updates-->
+                <div class="col-lg-4">
+                  <div class="recent-updates card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard6" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header">
+                      <h3 class="h4">Recent Updates</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <!-- Item        -->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Lorem ipsum dolor sit amet.</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed.</p>
+                          </div>
+                        </div>
+                        <div class="date text-right"><strong>24</strong><span>May</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Daily Feeds -->
+                <div class="col-lg-4">
+                  <div class="daily-feeds card"> 
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard7" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header">
+                      <h3 class="h4">Daily Feeds</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      <!-- Item-->
+                      <div class="item">
+                        <div class="feed d-flex justify-content-between">
+                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-5.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                            <div class="content">
+                              <h5>Aria Smith</h5><span>Posted a new blog </span>
+                              <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
+                            </div>
+                          </div>
+                          <div class="date text-right"><small>5min ago</small></div>
+                        </div>
+                      </div>
+                      <!-- Item-->
+                      <div class="item"> 
+                        <div class="feed d-flex justify-content-between">
+                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-2.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                            <div class="content">
+                              <h5>Frank Williams</h5><span>Posted a new blog </span>
+                              <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
+                              <div class="CTAs"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-thumbs-up"> </i>Like</a><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-heart"> </i>Love    </a></div>
+                            </div>
+                          </div>
+                          <div class="date text-right"><small>5min ago</small></div>
+                        </div>
+                      </div>
+                      <!-- Item-->
+                      <div class="item clearfix">
+                        <div class="feed d-flex justify-content-between">
+                          <div class="feed-body d-flex justify-content-between"><a href="#" class="feed-profile"><img src="img/avatar-3.jpg" alt="person" class="img-fluid rounded-circle"></a>
+                            <div class="content">
+                              <h5>Ashley Wood</h5><span>Posted a new blog </span>
+                              <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
+                            </div>
+                          </div>
+                          <div class="date text-right"><small>5min ago</small></div>
+                        </div>
+                        <div class="quote has-shadow"> <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over the years.</small></div>
+                        <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-secondary"><i class="fa fa-thumbs-up"> </i>Like</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Recent Activities -->
+                <div class="col-lg-4">
+                  <div class="recent-activities card">
+                    <div class="card-close">
+                      <div class="dropdown">
+                        <button type="button" id="closeCard8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard8" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                      </div>
+                    </div>
+                    <div class="card-header">
+                      <h3 class="h4">Recent Activities</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-4 date-holder text-right">
+                            <div class="icon"><i class="icon-clock"></i></div>
+                            <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                          </div>
+                          <div class="col-8 content">
+                            <h5>Meeting</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-4 date-holder text-right">
+                            <div class="icon"><i class="icon-clock"></i></div>
+                            <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                          </div>
+                          <div class="col-8 content">
+                            <h5>Meeting</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-4 date-holder text-right">
+                            <div class="icon"><i class="icon-clock"></i></div>
+                            <div class="date"> <span>6:00 am</span><span class="text-info">6 hours ago</span></div>
+                          </div>
+                          <div class="col-8 content">
+                            <h5>Meeting</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+           <section class="updates no-padding-top">
+            <div class="container-fluid">
+              <div class="row">
+              	<div class="col-lg-12">
+                  <div class="recent-updates card">
+                    <div class="card-header">
+                      <h3 class="h4">About us</h3>
+                    </div>
+                    <div class="card-body no-padding">
+                      <!-- Item-->
+                      <div class="item d-flex justify-content-between">
+                        <div class="info d-flex">
+                          <div class="icon"><i class="icon-rss-feed"></i></div>
+                          <div class="title">
+                            <h5>Instant Appointment</h5>
+                            <p>Instant appointment with doctors.Guaranteed.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> 
+          <!-- Page Footer-->
+          <footer class="main-footer">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Daanee &copy; 2017-2019</p>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <p>Terms of services</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    <!-- Javascript files-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+   <!--  <script src="vendor/chart.js/Chart.min.js"></script> -->
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+  <!--   <script src="js/charts-home.js"></script> -->
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+  </body>
+</html>

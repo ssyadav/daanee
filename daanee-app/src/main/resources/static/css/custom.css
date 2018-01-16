@@ -1,0 +1,7 @@
+/* your styles go here */
+.emergency {
+	font-size: 0.8em;
+	padding: 4px 2px;
+	color: #aaa;
+	transition: color 0.3s, background 0.3s;
+}

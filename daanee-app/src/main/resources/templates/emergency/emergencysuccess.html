@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="fragments/layout">
+	<body>
+		<section layout:fragment="content" style="width:100%">
+				 <section class="updates no-padding-top">
+		           <!-- Breadcrumb-->
+		          <div class="breadcrumb-holder container-fluid">
+		            <ul class="breadcrumb">
+		              <li class="breadcrumb-item"><a href="/">Home</a></li>
+		              <li class="breadcrumb-item active">Emergency</li>
+		            </ul>
+		          </div>
+		         </section> 
+		          <div class="container-fluid">
+		            <div class="row">
+		                <div class="col-lg-8 col-lg-offset-2" >
+							<div class="card-header d-flex align-items-center">
+			                      <h3 class="h4">Patient details submitted successfully</h3>
+			                </div>
+		                    <form id="contact-form"  th:object="${emergency}" method="post" role="form" 
+		                     style="background:white; border: 0 solid #eee; border-radius: 0;">
+		                        <div class="messages"></div>
+		                        <div class="controls card-body">
+		
+		                            <div class="row">
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="form_name">Patient Name: </label>
+		                                        <label id="form_name" class="emergency" th:text="${emergency.name}"> </Label>
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="geocomplete">Patient Location: </label>
+		                                        <label id="geocomplete" class="emergency" th:text="${emergency.location}"> </Label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="row">
+		                                
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="form_phone">Phone: </label>
+		                                        <label id="form_phone" class="emergency" th:text="${emergency.phonenumber}"> </Label>
+		                                    </div>
+		                                </div>
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="form_email">Email: </label>
+		                                        <label id="form_email" class="emergency" th:text="${emergency.email}"> </Label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="row">
+		                                <div class="col-md-12">
+		                                    <div class="form-group">
+		                                        <label for="form_message">Message: </label>
+		                                        <label id="form_message" class="emergency" th:text="${emergency.message}"> </Label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="row">
+		                                <div class="col-md-12">
+		                                    <div class="form-group">
+		                                        <label for="form_message">Note: </label>
+		                                        <label class="emergency"> Keep this id for future communication</label>
+		                                        <label  th:text="${emergency.id}"> </Label>
+		                                        <label class="emergency"> Please call the customer care for status.</label>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		
+		                    </form>
+		
+		                </div>
+		
+		            </div>
+		
+		        </div>
+		    </section>  
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="patient/layout">
+	<body>
+		<section layout:fragment="content" style="width:100%">
+				 <section class="updates no-padding-top">
+		           <!-- Breadcrumb-->
+		          <div class="breadcrumb-holder container-fluid">
+		            <ul class="breadcrumb">
+		              <li class="breadcrumb-item active">Welcome <span th:text="${#authentication.name}"></span></li>
+		            </ul>
+		          </div>
+		         </section> 
+		          <div class="container-fluid">
+		            <div class="row">
+		                <div class="col-lg-8 col-lg-offset-2" >
+							<!-- <div class="card-header d-flex align-items-center">
+			                      <h3 class="h4">Ambulance Form</h3>
+			                </div> -->
+		                    Patient Home
+		
+		                </div>
+		
+		            </div>
+		
+		        </div>
+		 </section>  
+	</body>
+</html>

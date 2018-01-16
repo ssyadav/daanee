@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="fragments/layout">
+	<body>
+		<section layout:fragment="content" style="width:100%">
+				 <section class="updates no-padding-top">
+		           <!-- Breadcrumb-->
+		          <div class="breadcrumb-holder container-fluid">
+		            <ul class="breadcrumb">
+		              <li class="breadcrumb-item"><a href="/">Home</a></li>
+		              <li class="breadcrumb-item active">Ambulance</li>
+		            </ul>
+		          </div>
+		         </section> 
+		          <div class="container-fluid">
+		            <div class="row">
+		                <div class="col-lg-8 col-lg-offset-2" >
+							<div class="card-header d-flex align-items-center">
+			                      <h3 class="h4">Ambulance Form</h3>
+			                </div>
+		                    <form id="contact-form" th:action="@{/ambulance}"  th:object="${ambulance}" method="post" role="form" 
+		                     style="background:white; border: 0 solid #eee; border-radius: 0;">
+		                        <div class="messages"></div>
+		                        <div class="controls card-body">
+		
+		                            <div class="row">
+		                                <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="form_name">Patient Name *</label>
+		                                        <input id="form_name" type="text" name="name" th:field="*{name}" class="form-control" placeholder="Please enter your patient name *" required="required" data-error="name is required.">
+		                                        <div class="help-block with-errors"></div>
+		                                    </div>
+		                                </div>
+		                                 <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="form_phone">Phone *</label>
+		                                        <input id="form_phone" type="tel" name="phone" th:field="*{phonenumber}" class="form-control" placeholder="Please enter your phone *">
+		                                        <div class="help-block with-errors"></div>
+		                                    </div>
+		                                </div>
+		                               
+		                            </div>
+		                            <div class="row">
+		                                 <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="fromgeocomplete">Source Location *</label><button onclick="getCurrectLocation('fromgeocomplete')" style="font-size: 11px; padding-left: 10px;">detect</button>
+		                                        <input id="fromgeocomplete" type="text" th:field="*{fromlocation}" placeholder="Type in an patient current location *" class="form-control" autocomplete="off" required="required" data-error="Source location is required.">
+		                                        <div id="fromlocationbydetect" ></div>
+		                                        <div class="help-block with-errors"></div>
+		                                    </div>
+		                                </div>
+		                                 <div class="col-md-6">
+		                                    <div class="form-group">
+		                                        <label for="togeocomplete">Destination Location *</label>
+		                                        <input id="togeocomplete" type="text" th:field="*{tolocation}" placeholder="Type in an patient drop location *" class="form-control" autocomplete="off" required="required" data-error="Destination location is required.">
+		                                        <div class="help-block with-errors"></div>
+		                                    </div>
+		                                </div>
+		                               
+		                                
+		                            </div>
+		                            <div class="row">
+		                                <div class="col-md-12">
+		                                    <div class="form-group">
+		                                        <label for="form_message">Message *</label>
+		                                        <textarea id="form_message" name="message" th:field="*{message}" class="form-control" placeholder="Message for us *" rows="3" required="required" data-error="Please,leave us a message."></textarea>
+		                                        <div class="help-block with-errors"></div>
+		                                    </div>
+		                                </div>
+		
+		                                <div class="col-md-12">
+		                                    <div class="form-group">
+		                                        <!-- Replace data-sitekey with your own one, generated at https://www.google.com/recaptcha/admin -->
+		                                        <div class="g-recaptcha" data-sitekey="6Lej2z8UAAAAAH3EsbENdtE9SIPg7G_l3CV7Sedk"></div>
+		                                    </div>
+		                                </div>
+		
+		                                <div class="col-md-12">
+		                                    <input type="submit" class="btn btn-primary" value="Submit">
+		                                </div>
+		                            </div>
+		                        </div>
+		
+		                    </form>
+		
+		                </div>
+		
+		            </div>
+		
+		        </div>
+		
+ 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-t7ABd6H1Kv-XnfXiM0drONBTjZd0nU&libraries=places"></script>
+			<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-t7ABd6H1Kv-XnfXiM0drONBTjZd0nU&libraries=places"></script> -->
+		 	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+		 	<script src="vendor/jquery/jquery-1.7.1.min.js"></script>
+		 	<script src="js/jquery.geocomplete.js"></script>
+		 	<script src="js/current-location.js"></script>
+		 	<!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+		    <script>
+			   	 jQuery.noConflict()(function ($) { 
+			   		    $(document).ready(function() { 
+			   		        $("#fromgeocomplete").geocomplete()
+			   		          .bind("geocode:result", function(event, result){
+			   		            //$.log("Result: " + result.formatted_address);
+			   		          })
+			   		          .bind("geocode:error", function(event, status){
+			   		            //$.log("ERROR: " + status);
+			   		          })
+			   		          .bind("geocode:multiple", function(event, results){
+			   		            //$.log("Multiple: " + results.length + " results found");
+			   		          });
+			   		        
+				   		     $("#togeocomplete").geocomplete()
+			   		          .bind("geocode:result", function(event, result){
+			   		            //$.log("Result: " + result.formatted_address);
+			   		          })
+			   		          .bind("geocode:error", function(event, status){
+			   		            //$.log("ERROR: " + status);
+			   		          })
+			   		          .bind("geocode:multiple", function(event, results){
+			   		            //$.log("Multiple: " + results.length + " results found");
+			   		          });
+			   		        
+			   		        /* $("#find").click(function(){
+			   		          $("#geocomplete").trigger("geocode");
+			   		        });
+			   		        
+			   		        
+			   		        $("#examples a").click(function(){
+			   		          $("#geocomplete").val($(this).text()).trigger("geocode");
+			   		          return false;
+			   		        }); */
+			
+			   		    });
+			   		});
+    	 
+		    </script> 	
+		    </section>  
+</body>
+</html>
